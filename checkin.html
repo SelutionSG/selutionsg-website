@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crew Check-In — SelutionSG</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0A1E36;
+    --ink-2: #102A47;
+    --paper: #F2EEE3;
+    --paper-line: #D9D2BE;
+    --amber: #F5902E;
+    --ink-text: #102338;
+    --muted-on-ink: #8FA2BC;
+    --muted-on-paper: #55637A;
+    --ok: #2E7D6F;
+    --err: #C0392B;
+  }
+  *, *::before, *::after{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--ink); color:var(--paper);
+    font-family:"IBM Plex Sans", sans-serif; font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+    padding: 28px 16px 48px;
+  }
+  .brand-logo{ height:40px; width:auto; margin-bottom:24px; border-radius:4px; }
+  .card{
+    width:100%; max-width:440px;
+    background:var(--paper); color:var(--ink-text);
+    border-radius:14px; padding:26px 22px 24px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,.55);
+  }
+  h1{
+    font-family:"Big Shoulders Display", sans-serif; text-transform:uppercase;
+    font-size:1.6rem; font-weight:800; margin:0 0 4px; letter-spacing:.01em;
+  }
+  .sub{
+    font-family:"IBM Plex Mono", monospace; font-size:.75rem;
+    color:var(--muted-on-paper); margin:0 0 22px;
+  }
+  label{
+    display:block; font-family:"IBM Plex Mono", monospace; font-size:.7rem;
+    text-transform:uppercase; letter-spacing:.06em; color:var(--muted-on-paper);
+    margin:0 0 6px;
+  }
+  .field{ margin-bottom:16px; }
+  input[type="text"], input[type="tel"]{
+    width:100%; font-family:inherit; font-size:1rem;
+    padding:12px 14px; border-radius:8px;
+    border:1.5px solid var(--paper-line); background:#fff; color:var(--ink-text);
+  }
+  input:focus-visible{ outline:3px solid var(--amber); outline-offset:1px; }
+  .selfie-row{ display:flex; align-items:center; gap:14px; }
+  .selfie-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:"IBM Plex Mono", monospace; font-weight:600; font-size:.78rem;
+    text-transform:uppercase; letter-spacing:.05em;
+    background:var(--ink); color:var(--paper);
+    padding:12px 18px; border-radius:999px; border:0; cursor:pointer;
+  }
+  .selfie-btn:focus-visible{ outline:3px solid var(--amber); outline-offset:2px; }
+  #selfie-preview{
+    width:64px; height:64px; border-radius:50%; object-fit:cover;
+    border:2px solid var(--paper-line); display:none;
+  }
+  #selfie-input{ display:none; }
+  .consent{
+    display:flex; gap:10px; align-items:flex-start;
+    font-family:"IBM Plex Sans", sans-serif;
+    font-size:.78rem; color:var(--muted-on-paper); line-height:1.5;
+    margin:18px 0;
+    text-transform:none; letter-spacing:0;
+  }
+  .consent input{ margin-top:3px; accent-color:var(--amber); }
+  .submit-btn{
+    width:100%; font-family:"IBM Plex Mono", monospace; font-weight:600;
+    font-size:.85rem; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--amber); color:var(--ink);
+    padding:16px; border-radius:999px; border:0; cursor:pointer;
+  }
+  .submit-btn:disabled{ opacity:.55; cursor:not-allowed; }
+  .submit-btn:focus-visible{ outline:3px solid var(--ink); outline-offset:2px; }
+  #status{
+    font-family:"IBM Plex Mono", monospace; font-size:.78rem;
+    margin:14px 0 0; min-height:1.2em; text-align:center;
+  }
+  #status.err{ color:var(--err); }
+  #status.ok{ color:var(--ok); }
+  .success{
+    text-align:center; padding:12px 0 4px; display:none;
+  }
+  .success .tick{
+    width:56px; height:56px; border-radius:50%; background:var(--ok);
+    margin:0 auto 16px; position:relative;
+  }
+  .success .tick::after{
+    content:""; position:absolute; left:18px; top:26px; width:14px; height:7px;
+    border-left:4px solid #fff; border-bottom:4px solid #fff;
+    transform:rotate(-45deg) translateY(-6px);
+  }
+  .success h2{
+    font-family:"Big Shoulders Display", sans-serif; text-transform:uppercase;
+    font-size:1.4rem; margin:0 0 6px;
+  }
+  .success p{ font-family:"IBM Plex Mono", monospace; font-size:.8rem; color:var(--muted-on-paper); margin:4px 0; }
+  .foot{
+    margin-top:22px; font-family:"IBM Plex Mono", monospace;
+    font-size:.7rem; color:var(--muted-on-ink); text-align:center; max-width:440px;
+  }
+</style>
+</head>
+<body>
+
+<img src="assets/logo-crop.png" alt="SelutionSG" class="brand-logo">
+
+<div class="card">
+  <form id="checkin-form" novalidate>
+    <h1>Crew Check-In</h1>
+    <p class="sub">Check in when you arrive on-site, before call time.</p>
+
+    <div class="field">
+      <label for="f-name">Full name (as rostered)</label>
+      <input type="text" id="f-name" autocomplete="name" required>
+    </div>
+
+    <div class="field">
+      <label for="f-phone">Mobile number</label>
+      <input type="tel" id="f-phone" inputmode="numeric" autocomplete="tel" placeholder="8-digit SG number" required>
+    </div>
+
+    <div class="field">
+      <label for="f-event">Event code (from your briefing pack)</label>
+      <input type="text" id="f-event" placeholder="e.g. SMU-0715" required>
+    </div>
+
+    <div class="field">
+      <label>Selfie verification</label>
+      <div class="selfie-row">
+        <button type="button" class="selfie-btn" id="selfie-btn">Take selfie</button>
+        <img id="selfie-preview" alt="Selfie preview">
+      </div>
+      <input type="file" id="selfie-input" accept="image/*" capture="user">
+    </div>
+
+    <label class="consent">
+      <input type="checkbox" id="f-consent" required>
+      <span>I consent to SelutionSG collecting my name, location, photo and check-in time for attendance verification for this event, in line with the PDPA. Data is kept only as long as needed for payroll and dispute resolution, then deleted.</span>
+    </label>
+
+    <button type="submit" class="submit-btn" id="submit-btn">Check in now</button>
+    <p id="status" role="status"></p>
+  </form>
+
+  <div class="success" id="success">
+    <div class="tick" aria-hidden="true"></div>
+    <h2>Checked in</h2>
+    <p id="success-time"></p>
+    <p id="success-ref"></p>
+    <p>Show this screen to your supervisor if asked.</p>
+  </div>
+</div>
+
+<p class="foot">Trouble checking in? Message the ops team on WhatsApp at +65 8978 2806.</p>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="checkin-config.js"></script>
+<script src="checkin.js"></script>
+</body>
+</html>
