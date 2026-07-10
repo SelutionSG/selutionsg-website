@@ -71,6 +71,26 @@
     });
   }
 
+  /* Turn coordinates into a readable address (OpenStreetMap Nominatim).
+     Best-effort: check-in proceeds with coordinates only if this fails. */
+  async function reverseGeocode(lat, lng) {
+    try {
+      var ctrl = new AbortController();
+      var timer = setTimeout(function () { ctrl.abort(); }, 6000);
+      var res = await fetch(
+        "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=" +
+          lat + "&lon=" + lng + "&zoom=18",
+        { signal: ctrl.signal, headers: { Accept: "application/json" } }
+      );
+      clearTimeout(timer);
+      if (!res.ok) return null;
+      var j = await res.json();
+      return j.display_name ? String(j.display_name).slice(0, 300) : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -91,6 +111,7 @@
     try {
       setStatus("Getting your location…");
       var pos = await getPosition();
+      var locationText = await reverseGeocode(pos.coords.latitude, pos.coords.longitude);
 
       setStatus("Uploading selfie…");
       var jpeg = await toJpeg(selfieFile);
@@ -109,6 +130,7 @@
         lat: pos.coords.latitude,
         lng: pos.coords.longitude,
         accuracy_m: pos.coords.accuracy,
+        location_text: locationText,
         device_time: new Date().toISOString(),
         selfie_path: path,
         user_agent: navigator.userAgent.slice(0, 250)
