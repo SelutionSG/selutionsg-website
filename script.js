@@ -101,7 +101,12 @@
     item.setAttribute("data-filename", "Add " + filename);
 
     img.addEventListener("error", function () {
-      item.classList.add("is-empty");
+      // Dashed "add photo" placeholders are an authoring aid — local only.
+      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+        item.classList.add("is-empty");
+      } else {
+        item.style.display = "none";
+      }
     });
 
     item.addEventListener("click", function () {
