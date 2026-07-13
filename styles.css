@@ -656,6 +656,24 @@ textarea{ resize: vertical; }
 .chip input{ accent-color: var(--coral); }
 
 /* ==========================================================================
+   Social links
+   ========================================================================== */
+.social-links{
+  display:flex; flex-wrap:wrap; gap:16px; align-items:center;
+}
+.social-link{
+  display:inline-flex; align-items:center; gap:7px;
+  color: var(--paper); text-decoration:none;
+  transition: color .15s ease;
+}
+.social-link:hover{ color: var(--amber); }
+.social-link svg{ width:20px; height:20px; flex:0 0 auto; }
+.contact-details .social-links{ gap:20px; }
+.footer-social{ margin-top:16px; }
+.footer-social .social-link{ color: var(--muted-on-ink); }
+.footer-social .social-link:hover{ color: var(--amber); }
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer{ padding: 56px 0 0; }
