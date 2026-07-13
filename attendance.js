@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  /* Shared by checkin.html and checkout.html.
+     Each page sets ATTENDANCE_KIND = "in" | "out" before including this. */
+  var KIND = typeof ATTENDANCE_KIND !== "undefined" ? ATTENDANCE_KIND : "in";
+
   var form = document.getElementById("checkin-form");
   var statusEl = document.getElementById("status");
   var submitBtn = document.getElementById("submit-btn");
@@ -99,12 +103,12 @@
     var eventCode = document.getElementById("f-event").value.trim().toUpperCase();
     var consent = document.getElementById("f-consent").checked;
 
-    if (!client) { setStatus("Check-in isn't configured yet. Contact the ops team.", "err"); return; }
+    if (!client) { setStatus("This page isn't configured yet. Contact the ops team.", "err"); return; }
     if (!name) { setStatus("Enter your full name.", "err"); return; }
     if (phone.length !== 8) { setStatus("Enter your 8-digit mobile number.", "err"); return; }
     if (!eventCode) { setStatus("Enter the event code from your briefing pack.", "err"); return; }
-    if (!selfieFile) { setStatus("Take a selfie before checking in.", "err"); return; }
-    if (!consent) { setStatus("Tick the consent box to check in.", "err"); return; }
+    if (!selfieFile) { setStatus("Take a selfie first.", "err"); return; }
+    if (!consent) { setStatus("Tick the consent box to continue.", "err"); return; }
 
     submitBtn.disabled = true;
 
@@ -116,14 +120,15 @@
       setStatus("Uploading selfie…");
       var jpeg = await toJpeg(selfieFile);
       var safeName = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40);
-      var path = eventCode + "/" + Date.now() + "_" + safeName + ".jpg";
+      var path = eventCode + "/" + KIND + "_" + Date.now() + "_" + safeName + ".jpg";
       var upload = await client.storage.from("selfies").upload(path, jpeg, {
         contentType: "image/jpeg"
       });
       if (upload.error) throw new Error("Selfie upload failed: " + upload.error.message);
 
-      setStatus("Logging your check-in…");
+      setStatus(KIND === "out" ? "Logging your check-out…" : "Logging your check-in…");
       var insert = await client.from("checkins").insert({
+        record_type: KIND,
         full_name: name,
         phone: phone,
         event_code: eventCode,
@@ -135,7 +140,7 @@
         selfie_path: path,
         user_agent: navigator.userAgent.slice(0, 250)
       });
-      if (insert.error) throw new Error("Check-in failed: " + insert.error.message);
+      if (insert.error) throw new Error((KIND === "out" ? "Check-out failed: " : "Check-in failed: ") + insert.error.message);
 
       var ref = "SLT-" + Date.now().toString(36).toUpperCase();
       document.getElementById("success-time").textContent =
@@ -146,7 +151,7 @@
       setStatus("");
     } catch (err) {
       var msg = err && err.message ? err.message : "Something went wrong. Try again.";
-      if (err && err.code === 1) msg = "Location permission denied. Enable location and try again — it's required for check-in.";
+      if (err && err.code === 1) msg = "Location permission denied. Enable location and try again — it's required.";
       if (err && err.code === 3) msg = "Couldn't get your location in time. Move somewhere with better signal and retry.";
       setStatus(msg, "err");
       submitBtn.disabled = false;

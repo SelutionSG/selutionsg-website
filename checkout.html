@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crew Check-In — SelutionSG</title>
+<title>Crew Check-Out — SelutionSG</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0A1E36">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -126,8 +126,8 @@
 
 <div class="card">
   <form id="checkin-form" novalidate>
-    <h1>Crew Check-In</h1>
-    <p class="sub">Check in when you arrive on-site, before call time.</p>
+    <h1>Crew Check-Out</h1>
+    <p class="sub">Check out when your shift ends and your supervisor has released you.</p>
 
     <div class="field">
       <label for="f-name">Full name (as rostered)</label>
@@ -158,23 +158,23 @@
       <span>I consent to SelutionSG collecting my name, location, photo and attendance time for verification for this event, in line with the PDPA. Data is kept only as long as needed for payroll and dispute resolution, then deleted.</span>
     </label>
 
-    <button type="submit" class="submit-btn" id="submit-btn">Check in now</button>
+    <button type="submit" class="submit-btn" id="submit-btn">Check out now</button>
     <p id="status" role="status"></p>
   </form>
 
   <div class="success" id="success">
     <div class="tick" aria-hidden="true"></div>
-    <h2>Checked in</h2>
+    <h2>Checked out</h2>
     <p id="success-time"></p>
     <p id="success-ref"></p>
     <p>Show this screen to your supervisor if asked.</p>
   </div>
 </div>
 
-<p class="foot">Trouble checking in? Message the ops team on WhatsApp at +65 8978 2806.<br>
-<a class="cross-link" href="checkout.html">Ending your shift? Check out here &rarr;</a></p>
+<p class="foot">Trouble checking out? Message the ops team on WhatsApp at +65 8978 2806.<br>
+<a class="cross-link" href="checkin.html">Starting your shift? Check in here &rarr;</a></p>
 
-<script>var ATTENDANCE_KIND = "in";</script>
+<script>var ATTENDANCE_KIND = "out";</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="checkin-config.js"></script>
 <script src="attendance.js"></script>
