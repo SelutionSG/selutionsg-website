@@ -38,7 +38,7 @@
 
   /* Scroll reveals */
   var revealTargets = document.querySelectorAll(
-    ".badge-card, .tl-item, .portfolio-item, .report-card, .services .section-title, .timeline .section-title, .coverage .section-title, .wrap-reports .section-title"
+    ".badge-card, .tl-item, .portfolio-item, .report-card, .faq-item, .services .section-title, .timeline .section-title, .coverage .section-title, .wrap-reports .section-title, .faq .section-title"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 

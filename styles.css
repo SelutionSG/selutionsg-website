@@ -514,6 +514,56 @@ section{ padding: 96px 0; }
 .report-card footer span{ display:block; color: var(--coral); margin-top:4px; }
 
 /* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq-list{
+  max-width: 760px;
+  border-top: 1px solid rgba(242,238,227,.16);
+}
+.faq-item{
+  border-bottom: 1px solid rgba(242,238,227,.16);
+}
+.faq-item summary{
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 2px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--paper);
+}
+.faq-item summary::-webkit-details-marker{ display: none; }
+.faq-item summary::after{
+  content: "+";
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--amber);
+  transition: transform .18s ease;
+}
+.faq-item[open] summary::after{
+  content: "−";
+}
+.faq-item summary:hover{ color: var(--amber); }
+.faq-item summary:focus-visible{
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.faq-item p{
+  margin: 0;
+  padding: 0 2px 20px;
+  max-width: 62ch;
+  color: var(--muted-on-ink);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
    Contact
    ========================================================================== */
 .contact{
