@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SelutionSG — Singapore Event Manpower Agency</title>
-<meta name="description" content="SelutionSG supplies vetted, uniformed part-time crew for events across Singapore — ushers, marshals, logistics, AV support and floor supervisors, briefed and checked in before doors open.">
-<meta name="theme-color" content="#0A1E36">
+<title>Selution — Where Work Meets Play</title>
+<meta name="description" content="Selution is building Singapore's most entertaining workplace while delivering reliable event manpower. Crew, promoters and brand ambassadors for events across Singapore.">
+<meta name="theme-color" content="#071726">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SelutionSG — Singapore Event Manpower Agency">
-<meta property="og:description" content="Vetted, uniformed part-time event crew — ushers, marshals, logistics, AV and supervisors — briefed and checked in before doors open.">
+<meta property="og:title" content="Selution — Where Work Meets Play">
+<meta property="og:description" content="Building Singapore's most entertaining workplace while delivering reliable event manpower.">
 <meta property="og:url" content="https://selutionsg.github.io/selutionsg-website/">
 <meta property="og:image" content="https://selutionsg.github.io/selutionsg-website/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -17,30 +17,30 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@1,700;1,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" id="top">
-  <div class="wrap header-row">
-    <a href="#top" class="brand">
-      <img src="assets/logo-crop.png" alt="SelutionSG" class="brand-logo">
+<header class="nav" id="top">
+  <div class="shell nav-row">
+    <a href="#top" class="nav-brand">
+      <img src="assets/logo-crop.png" alt="Selution">
     </a>
 
-    <nav class="main-nav" id="main-nav" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#coverage">Coverage</a>
-      <a href="#wrap-reports">Clients</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="nav-cta">Request Crew</a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#life"><span class="tag-play">Play</span> Life at Selution</a>
+      <a href="#services"><span class="tag-work">Work</span> What we do</a>
+      <a href="#crew"><span class="tag-play">Play</span> The crew</a>
+      <a href="#proof"><span class="tag-work">Work</span> Why clients stay</a>
+      <a href="#join" class="nav-join">Join us</a>
+      <a href="#hire" class="nav-cta">Hire crew</a>
     </nav>
 
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav">
-      <span></span><span></span><span></span>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+      <span class="bar"></span><span class="bar"></span>
       <span class="sr-only">Menu</span>
     </button>
   </div>
@@ -48,461 +48,461 @@
 
 <main id="main">
 
-  <!-- ============ HERO ============ -->
+  <!-- ══════════ HERO ══════════ -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <img src="assets/portfolio/01.jpg" alt="" loading="eager">
-      <img src="assets/portfolio/05.jpg" alt="" loading="lazy">
-      <img src="assets/portfolio/02.jpg" alt="" loading="lazy">
-    </div>
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Singapore Event Manpower Agency</p>
-        <h1 class="hero-title">Connecting you with the<br>workforce you need.</h1>
-        <p class="hero-sub">SelutionSG staffs Singapore's events with vetted, uniformed part-time crew — ushers, marshals, logistics, AV and floor supervisors — briefed, checked in, and accounted for before doors open.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Request Crew</a>
-          <a href="#how-it-works" class="btn btn-ghost">See how booking works</a>
-        </div>
-        <p class="hero-fineprint">MOM-compliant agency · Same-day roster quotes · UEN 202556146G</p>
+    <!-- Drop a looping cut at assets/hero.mp4 and it plays automatically.
+         Until then, the real event photos below run as a slow montage. -->
+    <div class="hero-media" aria-hidden="true">
+      <video id="hero-video" muted loop playsinline preload="none" poster="assets/portfolio/01.jpg">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-montage" id="hero-montage">
+        <img src="assets/portfolio/01.jpg" alt="" class="is-on">
+        <img src="assets/portfolio/02.jpg" alt="">
+        <img src="assets/portfolio/03.jpg" alt="">
       </div>
+      <div class="hero-scrim"></div>
+    </div>
 
-      <div class="hero-manifest" aria-label="Sample live event-day roster">
-        <div class="manifest-card">
-          <div class="manifest-head">
-            <span class="manifest-title">Event day manifest</span>
-            <span class="manifest-date" id="manifest-date">—</span>
-          </div>
-          <div class="manifest-cols" aria-hidden="true">
-            <span>Call time</span><span>Venue</span><span>Role</span><span>Crew</span><span>Status</span>
-          </div>
-          <ul class="manifest-rows" id="manifest-rows">
-            <li class="manifest-row">
-              <span class="m-time">06:00</span>
-              <span class="m-venue">Marina Bay Sands · Hall C</span>
-              <span class="m-role">Load-in Crew</span>
-              <span class="m-count">18</span>
-              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
-            </li>
-            <li class="manifest-row">
-              <span class="m-time">07:30</span>
-              <span class="m-venue">Suntec · Hall 401</span>
-              <span class="m-role">Ushers &amp; Registration</span>
-              <span class="m-count">24</span>
-              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
-            </li>
-            <li class="manifest-row">
-              <span class="m-time">08:15</span>
-              <span class="m-venue">Singapore EXPO · Hall 5</span>
-              <span class="m-role">Crowd Marshals</span>
-              <span class="m-count">12</span>
-              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
-            </li>
-            <li class="manifest-row">
-              <span class="m-time">09:00</span>
-              <span class="m-venue">Sentosa · Beach Station</span>
-              <span class="m-role">Brand Ambassadors</span>
-              <span class="m-count">8</span>
-              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
-            </li>
-            <li class="manifest-row">
-              <span class="m-time">10:45</span>
-              <span class="m-venue">Changi Exhibition Ctr</span>
-              <span class="m-role">AV &amp; Technical Crew</span>
-              <span class="m-count">6</span>
-              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
-            </li>
-          </ul>
-          <div class="manifest-foot">
-            <span><strong id="manifest-total">68</strong> crew called</span>
-            <span class="manifest-foot-ok">68 checked in · 0 gaps</span>
-          </div>
-        </div>
+    <div class="shell hero-inner">
+      <p class="hero-eyebrow"><span class="live-dot"></span>Singapore · Event crew &amp; culture</p>
+
+      <h1 class="hero-title">
+        <span class="ht-line">Where <span class="ht-work">Work</span></span>
+        <span class="ht-line">meets <em class="ht-play">Play.</em></span>
+      </h1>
+
+      <p class="hero-sub">Building Singapore's most entertaining workplace while delivering reliable event manpower.</p>
+
+      <div class="doors">
+        <a href="#hire" class="door door-work">
+          <span class="door-tag">Work</span>
+          <span class="door-head">I need crew</span>
+          <span class="door-sub">Staff my event — quoted same day</span>
+          <span class="door-go" aria-hidden="true">→</span>
+        </a>
+        <a href="#join" class="door door-play">
+          <span class="door-tag">Play</span>
+          <span class="door-head">I want to work</span>
+          <span class="door-sub">Flexible shifts, real community</span>
+          <span class="door-go" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-marquee" aria-label="Selution by the numbers">
+      <div class="marquee-track">
+        <span><b>300+</b> crew on roster</span><i>◆</i>
+        <span><b>92%</b> on-time check-in</span><i>◆</i>
+        <span><b>28</b> events staffed this year</span><i>◆</i>
+        <span>Same-day roster quotes</span><i>◆</i>
+        <span><b>300+</b> crew on roster</span><i>◆</i>
+        <span><b>92%</b> on-time check-in</span><i>◆</i>
+        <span><b>28</b> events staffed this year</span><i>◆</i>
+        <span>Same-day roster quotes</span><i>◆</i>
       </div>
     </div>
   </section>
 
-  <!-- ============ TRUST TICKER ============ -->
-  <section class="ticker" aria-label="Agency figures">
-    <div class="ticker-track" aria-hidden="true">
-      <span class="ticker-item">300+ CREW ON ROSTER</span>
-      <span class="ticker-item">92% ON-TIME CHECK-IN RATE</span>
-      <span class="ticker-item">28 EVENTS STAFFED YEAR-TO-DATE</span>
-      <span class="ticker-item">300+ CREW ON ROSTER</span>
-      <span class="ticker-item">92% ON-TIME CHECK-IN RATE</span>
-      <span class="ticker-item">28 EVENTS STAFFED YEAR-TO-DATE</span>
-      <span class="ticker-item">300+ CREW ON ROSTER</span>
-      <span class="ticker-item">92% ON-TIME CHECK-IN RATE</span>
-      <span class="ticker-item">28 EVENTS STAFFED YEAR-TO-DATE</span>
+  <!-- ══════════ LIFE AT SELUTION — centrepiece ══════════ -->
+  <section class="band band-dark" id="life">
+    <div class="shell">
+      <header class="band-head">
+        <p class="band-tag tag-play">Play /</p>
+        <h2 class="band-title">Life at Selution</h2>
+        <p class="band-lead">We film the work. The challenges, the 6am load-ins, the wins and the chaos — all of it goes on camera.</p>
+      </header>
+
+      <!-- This week strip -->
+      <div class="week">
+        <p class="week-label">This week</p>
+        <div class="week-grid">
+          <article class="week-card week-feature" data-slot="latest-video">
+            <div class="week-thumb">
+              <span class="play-btn" aria-hidden="true"></span>
+            </div>
+            <div class="week-meta">
+              <p class="week-kicker">Latest upload</p>
+              <h3>[Add the title of your newest YouTube video]</h3>
+              <a class="week-link" href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer">Watch on YouTube →</a>
+            </div>
+          </article>
+
+          <article class="week-card" data-slot="spotlight">
+            <p class="week-kicker">Crew spotlight</p>
+            <h3>[Add a crew member and one line about them]</h3>
+          </article>
+
+          <article class="week-card" data-slot="recent-event">
+            <p class="week-kicker">Recent event</p>
+            <h3>SMU campus event</h3>
+            <p class="week-note">90 pax · game booth masters, registration and crowd marshals</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Channels -->
+      <div class="channels">
+        <a class="channel channel-yt" href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#E62117" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5z"/>
+            <path fill="#F7F6F3" d="M9.6 15.6 15.9 12 9.6 8.4z"/>
+          </svg>
+          <span class="channel-name">YouTube</span>
+          <span class="channel-handle">@selutionsg</span>
+        </a>
+        <a class="channel channel-tt" href="https://www.tiktok.com/@selutionsg" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+          <span class="channel-name">TikTok</span>
+          <span class="channel-handle">@selutionsg</span>
+        </a>
+        <a class="channel channel-ig" href="https://www.instagram.com/selutionsg" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <defs><linearGradient id="ig-life" x1="3" y1="21" x2="21" y2="3">
+              <stop offset="0" stop-color="#FFDC80"/><stop offset=".28" stop-color="#F77737"/>
+              <stop offset=".55" stop-color="#E1306C"/><stop offset=".78" stop-color="#C13584"/>
+              <stop offset="1" stop-color="#833AB4"/>
+            </linearGradient></defs>
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="url(#ig-life)" stroke-width="1.9"/>
+            <circle cx="12" cy="12" r="4.2" stroke="url(#ig-life)" stroke-width="1.9"/>
+            <circle cx="17.3" cy="6.7" r="1.35" fill="url(#ig-life)"/>
+          </svg>
+          <span class="channel-name">Instagram</span>
+          <span class="channel-handle">@selutionsg</span>
+        </a>
+      </div>
+
+      <!-- Reel: real event photography -->
+      <div class="reel" id="reel">
+        <figure class="reel-item"><img src="assets/portfolio/01.jpg" alt="Crew briefing before an SMU campus event" loading="lazy"><figcaption>SMU event · 90 pax</figcaption></figure>
+        <figure class="reel-item"><img src="assets/portfolio/02.jpg" alt="Crew seated for a pre-event briefing under a marquee" loading="lazy"><figcaption>Briefing · load-in day</figcaption></figure>
+        <figure class="reel-item"><img src="assets/portfolio/03.jpg" alt="Crew waiting at stations before doors open" loading="lazy"><figcaption>Stations set · doors in 20</figcaption></figure>
+        <figure class="reel-item reel-tall"><img src="assets/portfolio/04.jpg" alt="Brand ambassador at a TCL activation" loading="lazy"><figcaption>TCL promoter</figcaption></figure>
+        <figure class="reel-item reel-tall"><img src="assets/portfolio/05.jpg" alt="Promoter at a Tableholic retail activation" loading="lazy"><figcaption>Tableholic promoter</figcaption></figure>
+      </div>
     </div>
   </section>
 
-  <!-- ============ SERVICES ============ -->
-  <section class="services" id="services">
-    <div class="wrap">
-      <p class="section-eyebrow">Roster</p>
-      <h2 class="section-title">Six crew tiers.<br>One call sheet.</h2>
-      <p class="section-lead">Every booking draws from the same vetted pool, badged by role so your on-ground lead knows exactly who's covering what.</p>
+  <!-- ══════════ WHAT WE DO ══════════ -->
+  <section class="band band-light" id="services">
+    <div class="shell">
+      <header class="band-head">
+        <p class="band-tag tag-work">Work /</p>
+        <h2 class="band-title">What we do</h2>
+        <p class="band-lead">One roster, one call sheet, one point of contact. Book any mix of these.</p>
+      </header>
 
-      <ul class="badge-grid">
-        <li class="badge-card" style="--tier: var(--amber);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="9" y="7" width="22" height="27" rx="2" stroke="currentColor" stroke-width="2"/><path d="M14 15h12M14 20h12M14 25h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3>Ushers &amp; Registration</h3>
-          <p>Front-of-house crew for check-in counters, badge collection and guest flow.</p>
+      <ul class="svc-grid">
+        <li class="svc">
+          <span class="svc-n">Event crew</span>
+          <p>Load-in, load-out, rigging support and back-of-house muscle.</p>
         </li>
-        <li class="badge-card" style="--tier: var(--coral);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 6l4 10h10l-8 7 3 11-9-7-9 7 3-11-8-7h10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          <h3>Crowd &amp; Traffic Marshals</h3>
-          <p>Marshals for queue control, crowd flow and vehicle marshalling on event grounds.</p>
+        <li class="svc">
+          <span class="svc-n">Brand ambassadors</span>
+          <p>Faces for your brand at activations, launches and sampling.</p>
         </li>
-        <li class="badge-card" style="--tier: var(--teal);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="7" y="16" width="26" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M12 16v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3" stroke="currentColor" stroke-width="2"/><circle cx="13" cy="33" r="2.4" stroke="currentColor" stroke-width="2"/><circle cx="27" cy="33" r="2.4" stroke="currentColor" stroke-width="2"/></svg>
-          <h3>Setup &amp; Logistics Crew</h3>
-          <p>Load-in, load-out, rigging support and back-of-house logistics muscle.</p>
+        <li class="svc">
+          <span class="svc-n">Promoters</span>
+          <p>Roving crew who can actually talk to strangers and sell it.</p>
         </li>
-        <li class="badge-card" style="--tier: var(--amber);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8 21v-3a4 4 0 0 1 4-4h2l14-6v26l-14-6h-2a4 4 0 0 1-4-4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M17 27v6a2.4 2.4 0 0 0 4.6 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3>Promoters &amp; Brand Ambassadors</h3>
-          <p>Roving crew for sampling, activations and on-floor brand engagement.</p>
+        <li class="svc">
+          <span class="svc-n">Registration staff</span>
+          <p>Check-in counters, badge collection, guest flow at the door.</p>
         </li>
-        <li class="badge-card" style="--tier: var(--coral);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M9 20a11 11 0 0 1 22 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="6" y="20" width="6" height="9" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="28" y="20" width="6" height="9" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M31 29v2a3 3 0 0 1-3 3h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3>AV &amp; Technical Support</h3>
-          <p>Extra hands for stage, sound and technical crews through setup and show.</p>
+        <li class="svc">
+          <span class="svc-n">Exhibition crew</span>
+          <p>Booth support and floor coverage across multi-day halls.</p>
         </li>
-        <li class="badge-card" style="--tier: var(--teal);">
-          <span class="badge-hole" aria-hidden="true"></span>
-          <svg class="badge-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M12 5v11a3 3 0 0 0 3 3v15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 5v7M12 5v7M15 5v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M27 5c-2.3 0-3.2 3.6-3.2 7.5S24.7 18 27 18v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>F&amp;B Crew</h3>
-          <p>Servers, runners and bar support for catering, banquets and F&amp;B service at events.</p>
+        <li class="svc">
+          <span class="svc-n">Roadshows</span>
+          <p>Travelling teams for mall atriums and multi-site runs.</p>
+        </li>
+        <li class="svc">
+          <span class="svc-n">Retail activations</span>
+          <p>In-store crew for demos, launches and weekend pushes.</p>
+        </li>
+        <li class="svc svc-cta">
+          <span class="svc-n">Something else?</span>
+          <p>Tell us the brief. We'll size the roster with you.</p>
+          <a href="#hire">Ask us →</a>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ============ HOW IT WORKS ============ -->
-  <section class="timeline" id="how-it-works">
-    <div class="wrap">
-      <p class="section-eyebrow">Booking flow</p>
-      <h2 class="section-title">From brief to<br>wrap report.</h2>
-      <p class="section-lead">Written the way we run it — as a countdown to your event, not a sales funnel.</p>
+  <!-- ══════════ THE CREW ══════════ -->
+  <section class="band band-dark" id="crew">
+    <div class="shell">
+      <header class="band-head">
+        <p class="band-tag tag-play">Play /</p>
+        <h2 class="band-title">The crew</h2>
+        <p class="band-lead">The people who show up, run the floor and end up on camera doing it.</p>
+      </header>
 
-      <ol class="tl-list">
-        <li class="tl-item">
-          <span class="tl-time">T&#8211;14 DAYS</span>
-          <div class="tl-body">
-            <h3>Brief &amp; roster planning</h3>
-            <p>Tell us the event, roles and headcount. We size the roster and quote same day.</p>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-time">T&#8211;3 DAYS</span>
-          <div class="tl-body">
-            <h3>Roster confirmed</h3>
-            <p>Crew assigned by name. Briefing pack, uniform and call sheet sent to every staff member.</p>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-time">T&#8211;0 · CALL TIME</span>
-          <div class="tl-body">
-            <h3>Check-in</h3>
-            <p>Crew arrives ahead of call time. Supervisor confirms headcount against your roster.</p>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-time">T&#8211;0 · EVENT WINDOW</span>
-          <div class="tl-body">
-            <h3>Live coverage</h3>
-            <p>An on-ground supervisor runs the floor and handles any last-minute gaps.</p>
-          </div>
-        </li>
-        <li class="tl-item">
-          <span class="tl-time">T&#8211;0 +1HR</span>
-          <div class="tl-body">
-            <h3>Wrap &amp; sign-off</h3>
-            <p>Sign-off sheet confirms hours and headcount. Wrap report sent within 24 hours.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ COVERAGE / PORTFOLIO ============ -->
-  <section class="coverage" id="coverage">
-    <div class="wrap">
-      <p class="section-eyebrow">Coverage</p>
-      <h2 class="section-title">On the ground,<br>in the field.</h2>
-      <p class="section-lead">On-the-ground moments from recent deployments — campus events, exhibitions and retail activations across Singapore.</p>
-
-      <div class="portfolio-grid" id="portfolio-grid">
-        <figure class="portfolio-item" data-ratio="landscape">
-          <img src="assets/portfolio/01.jpg" alt="SMU Event, 90 pax" loading="lazy">
-          <figcaption>SMU Event · 90 pax</figcaption>
-        </figure>
-        <figure class="portfolio-item" data-ratio="landscape">
-          <img src="assets/portfolio/02.jpg" alt="SMU Event, 90 pax" loading="lazy">
-          <figcaption>SMU Event · 90 pax</figcaption>
-        </figure>
-        <figure class="portfolio-item" data-ratio="landscape">
-          <img src="assets/portfolio/03.jpg" alt="SMU Event, 90 pax" loading="lazy">
-          <figcaption>SMU Event · 90 pax</figcaption>
-        </figure>
-        <figure class="portfolio-item" data-ratio="tall">
-          <img src="assets/portfolio/04.jpg" alt="TCL Promoter" loading="lazy">
-          <figcaption>TCL Promoter</figcaption>
-        </figure>
-        <figure class="portfolio-item" data-ratio="tall">
-          <img src="assets/portfolio/05.jpg" alt="Tableholic Promoter" loading="lazy">
-          <figcaption>Tableholic Promoter</figcaption>
-        </figure>
-      </div>
-      <p class="coverage-note">Independent staffing partner — venues shown reflect past deployments only, not official affiliation or endorsement.</p>
-    </div>
-  </section>
-
-  <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
-    <figure>
-      <img id="lightbox-img" src="" alt="">
-      <figcaption id="lightbox-caption"></figcaption>
-    </figure>
-  </div>
-
-  <!-- ============ WRAP REPORTS / TESTIMONIALS ============ -->
-  <section class="wrap-reports" id="wrap-reports">
-    <div class="wrap">
-      <p class="section-eyebrow">Client wrap reports</p>
-      <h2 class="section-title">How our bookings<br>wrap up.</h2>
-
-      <div class="report-grid">
-        <blockquote class="report-card">
-          <p>"Game booth masters, registration, and crowd marshals all came from one roster. Crew rotated between stations without us having to step in and manage it ourselves."</p>
-          <footer>Event Coordinator, SMU Campus Event <span>— illustrative example</span></footer>
-        </blockquote>
-        <blockquote class="report-card">
-          <p>"Servers and crowd marshals both booked off a single call sheet for our conference at Orchard Hotel. Headcount on the floor matched what was confirmed, down to the last person."</p>
-          <footer>Conference Producer, Orchard Hotel <span>— illustrative example</span></footer>
-        </blockquote>
-        <blockquote class="report-card">
-          <p>"Our promoters were briefed on the product before the fair even opened at Expo. Nobody on the floor needed hand-holding once doors were open."</p>
-          <footer>Marketing Lead, Baby Fair Exhibitor <span>— illustrative example</span></footer>
-        </blockquote>
+      <div class="crew-grid">
+        <article class="person" data-slot="founder-1">
+          <div class="person-photo"><span class="person-init" aria-hidden="true">S</span></div>
+          <h3>[Add name]</h3>
+          <p class="person-role">[Add role — e.g. Founder]</p>
+          <p class="person-line">[One line with actual personality. What they're known for on a shift.]</p>
+        </article>
+        <article class="person" data-slot="founder-2">
+          <div class="person-photo"><span class="person-init" aria-hidden="true">S</span></div>
+          <h3>[Add name]</h3>
+          <p class="person-role">[Add role]</p>
+          <p class="person-line">[One line with actual personality.]</p>
+        </article>
+        <article class="person" data-slot="regular-1">
+          <div class="person-photo"><span class="person-init" aria-hidden="true">S</span></div>
+          <h3>[Add name]</h3>
+          <p class="person-role">[Add role — e.g. Team lead]</p>
+          <p class="person-line">[One line with actual personality.]</p>
+        </article>
+        <article class="person" data-slot="regular-2">
+          <div class="person-photo"><span class="person-init" aria-hidden="true">S</span></div>
+          <h3>[Add name]</h3>
+          <p class="person-role">[Add role]</p>
+          <p class="person-line">[One line with actual personality.]</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="faq" id="faq">
-    <div class="wrap">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-title">Before you<br>send the brief.</h2>
-      <p class="section-lead">The questions clients ask most, answered straight. Jump to a topic:</p>
+  <!-- ══════════ WHY CLIENTS STAY ══════════ -->
+  <section class="band band-light" id="proof">
+    <div class="shell">
+      <header class="band-head">
+        <p class="band-tag tag-work">Work /</p>
+        <h2 class="band-title">Why clients stay</h2>
+        <p class="band-lead">The culture is the fun part. This is the part that gets your event staffed.</p>
+      </header>
 
-      <nav class="faq-chips" aria-label="FAQ topics">
-        <a href="#faq-booking" class="faq-chip">Booking</a>
-        <a href="#faq-event-day" class="faq-chip">On event day</a>
-        <a href="#faq-billing" class="faq-chip">Billing &amp; compliance</a>
-      </nav>
+      <div class="proof-split">
+        <!-- Live manifest — real check-in data from our own system -->
+        <div class="manifest">
+          <div class="manifest-head">
+            <span class="manifest-title"><span class="live-dot"></span>Event day manifest</span>
+            <span class="manifest-date" id="manifest-date">—</span>
+          </div>
+          <div class="manifest-cols" aria-hidden="true">
+            <span>Call</span><span>Venue</span><span>Role</span><span>Crew</span><span>Status</span>
+          </div>
+          <ul class="manifest-rows" id="manifest-rows">
+            <li class="manifest-row">
+              <span class="m-time">06:00</span><span class="m-venue">Marina Bay Sands</span>
+              <span class="m-role">Load-in crew</span><span class="m-count">18</span>
+              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
+            </li>
+            <li class="manifest-row">
+              <span class="m-time">07:30</span><span class="m-venue">Suntec · Hall 401</span>
+              <span class="m-role">Registration</span><span class="m-count">24</span>
+              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
+            </li>
+            <li class="manifest-row">
+              <span class="m-time">08:15</span><span class="m-venue">Singapore EXPO</span>
+              <span class="m-role">Crowd marshals</span><span class="m-count">12</span>
+              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
+            </li>
+            <li class="manifest-row">
+              <span class="m-time">09:00</span><span class="m-venue">Sentosa</span>
+              <span class="m-role">Brand ambassadors</span><span class="m-count">8</span>
+              <span class="m-status"><i class="tick" aria-hidden="true"></i>Checked in</span>
+            </li>
+          </ul>
+          <div class="manifest-foot">
+            <span><strong id="manifest-total">62</strong> crew called</span>
+            <span class="manifest-foot-ok">62 checked in · 0 gaps</span>
+          </div>
+          <p class="manifest-note">Every crew member checks in on site with GPS, timestamp and photo. Gaps surface before doors open — not after.</p>
+        </div>
 
-      <div class="faq-list">
-        <h3 class="faq-group-title" id="faq-booking">Booking</h3>
-        <details class="faq-item">
-          <summary>How far in advance should we book?</summary>
-          <p>Send the brief as early as you can — we quote the same working day, and rosters are confirmed by name about three days before your event. Shorter runway? Tell us anyway; we'll tell you honestly what we can cover with the crew available.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What roles can you supply?</summary>
-          <p>Six tiers, bookable in any mix on one call sheet: ushers &amp; registration, crowd &amp; traffic marshals, setup &amp; logistics crew, promoters &amp; brand ambassadors, AV &amp; technical support, and F&amp;B crew.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What do you need from us for a quote?</summary>
-          <p>Event date, venue, roles, headcount, and shift timings — the request form below covers all of it. Rough numbers are fine to start; we'll size the roster with you.</p>
-        </details>
+        <div class="proof-side">
+          <div class="quotes">
+            <blockquote class="quote">
+              <p>"Game booth masters, registration and crowd marshals all came from one roster. Crew rotated between stations without us stepping in."</p>
+              <footer>Event coordinator · SMU campus event <span>illustrative example</span></footer>
+            </blockquote>
+            <blockquote class="quote">
+              <p>"Servers and crowd marshals booked off a single call sheet. Headcount on the floor matched what was confirmed, to the person."</p>
+              <footer>Conference producer · Orchard Hotel <span>illustrative example</span></footer>
+            </blockquote>
+            <blockquote class="quote">
+              <p>"Our promoters were briefed on the product before the fair opened at Expo. Nobody needed hand-holding once doors were open."</p>
+              <footer>Marketing lead · baby fair exhibitor <span>illustrative example</span></footer>
+            </blockquote>
+          </div>
 
-        <h3 class="faq-group-title" id="faq-event-day">On event day</h3>
-        <details class="faq-item">
-          <summary>How do you make sure crew actually turn up?</summary>
-          <p>Every crew member checks in on arrival through our attendance system — GPS location, timestamp and selfie verification — so gaps are visible before doors open, not after. Our current on-time check-in rate is 92%.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Do crew arrive briefed, or do we have to train them?</summary>
-          <p>Each rostered crew member receives a briefing pack, uniform requirements and call sheet before event day. Your on-ground lead briefs once at call time — not fifty times during the event.</p>
-        </details>
-        <details class="faq-item">
-          <summary>What happens if someone doesn't show?</summary>
-          <p>The assigned supervisor tracks check-ins against the roster from call time and works the gap immediately — that's their job on the floor. You deal with one point of contact, not the no-show.</p>
-        </details>
-
-        <h3 class="faq-group-title" id="faq-billing">Billing &amp; compliance</h3>
-        <details class="faq-item">
-          <summary>How are hours confirmed for billing?</summary>
-          <p>Check-in and check-out times are logged digitally for every crew member, and a sign-off sheet confirms headcount and hours at wrap. You get the wrap report within 24 hours, so reconciliation is based on records — not memory.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Is SelutionSG a registered agency?</summary>
-          <p>Yes — SelutionSG is a Singapore-registered business (UEN 202556146G) operating MOM-compliant staffing practices.</p>
-        </details>
+          <div class="logos" data-slot="client-logos">
+            <p class="logos-label">Worked with</p>
+            <div class="logos-row">
+              <span class="logo-slot">[Client logo]</span>
+              <span class="logo-slot">[Client logo]</span>
+              <span class="logo-slot">[Client logo]</span>
+              <span class="logo-slot">[Client logo]</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CONTACT / REQUEST CREW ============ -->
-  <section class="contact" id="contact">
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <p class="section-eyebrow section-eyebrow-light">Request crew</p>
-        <h2 class="section-title section-title-light">Send us the call sheet.<br>We'll do the rest.</h2>
-        <p class="section-lead section-lead-light">Fill in what you know — venue, date, roles, headcount. We'll come back with a quote and a proposed roster the same working day.</p>
-        <dl class="contact-details">
-          <div><dt>Email</dt><dd>sales@selutionsg.com</dd></div>
-          <div><dt>Phone</dt><dd>+65 8978 2806</dd></div>
-          <div><dt>Registered</dt><dd>SelutionSG · Singapore · UEN 202556146G</dd></div>
-          <div class="social-row"><dt>Follow us</dt><dd class="social-links">
-            <a href="https://www.instagram.com/selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--ig">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <defs><linearGradient id="ig-grad-a" x1="3" y1="21" x2="21" y2="3">
-                  <stop offset="0" stop-color="#FFDC80"/><stop offset=".28" stop-color="#F77737"/>
-                  <stop offset=".55" stop-color="#E1306C"/><stop offset=".78" stop-color="#C13584"/>
-                  <stop offset="1" stop-color="#833AB4"/>
-                </linearGradient></defs>
-                <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="url(#ig-grad-a)" stroke-width="1.9"/>
-                <circle cx="12" cy="12" r="4.2" stroke="url(#ig-grad-a)" stroke-width="1.9"/>
-                <circle cx="17.3" cy="6.7" r="1.35" fill="url(#ig-grad-a)"/>
-              </svg>
-              @selutionsg
-            </a>
-            <a href="https://www.tiktok.com/@selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--tt">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-              </svg>
-              @selutionsg
-            </a>
-            <a href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--yt">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path fill="#E62117" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5z"/>
-                <path fill="#F2EEE3" d="M9.6 15.6 15.9 12 9.6 8.4z"/>
-              </svg>
-              @selutionsg
-            </a>
-          </dd></div>
+  <!-- ══════════ JOIN ══════════ -->
+  <section class="band band-dark" id="join">
+    <div class="shell">
+      <header class="band-head">
+        <p class="band-tag tag-play">Play /</p>
+        <h2 class="band-title">Become part of it</h2>
+        <p class="band-lead">No CV screening theatre. Pick shifts that fit your timetable, show up, get paid, and end up in the videos.</p>
+      </header>
+
+      <div class="join-grid">
+        <div class="perks">
+          <div class="perk"><span class="perk-k">Flexible</span><p>Take the shifts that fit around class. No minimum commitment.</p></div>
+          <div class="perk"><span class="perk-k">Paid on time</span><p>Hours logged digitally at check-in and check-out. No chasing.</p></div>
+          <div class="perk"><span class="perk-k">You'll learn</span><p>Start on registration, work up to team lead. We promote from the floor.</p></div>
+          <div class="perk"><span class="perk-k">Actual friends</span><p>Most crew come back because of the people, not the pay.</p></div>
+        </div>
+
+        <aside class="join-cta">
+          <p class="join-kicker">Next intake</p>
+          <h3>Come work an event with us</h3>
+          <p>Tell us your name, your availability and what you're good at. We'll put you on the roster for the next suitable job.</p>
+          <a class="btn btn-flare" href="https://wa.me/6589782806?text=Hi%20Selution%2C%20I%27d%20like%20to%20join%20the%20crew." target="_blank" rel="noopener noreferrer">WhatsApp us to join →</a>
+          <p class="join-fine">Students and young adults welcome. Singapore-based roles.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ HIRE ══════════ -->
+  <section class="band band-light" id="hire">
+    <div class="shell hire-grid">
+      <div class="hire-copy">
+        <p class="band-tag tag-work">Work /</p>
+        <h2 class="band-title">Hire event crew</h2>
+        <p class="band-lead">Send the brief — venue, date, roles, headcount. We come back with a quote and a proposed roster the same working day.</p>
+
+        <dl class="contact-list">
+          <div><dt>Email</dt><dd><a href="mailto:sales@selutionsg.com">sales@selutionsg.com</a></dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="https://wa.me/6589782806" target="_blank" rel="noopener noreferrer">+65 8978 2806</a></dd></div>
+          <div><dt>Registered</dt><dd>Selution · Singapore · UEN 202556146G</dd></div>
         </dl>
       </div>
 
-      <form class="request-form" id="request-form" novalidate>
-        <p class="form-note">Opens your email app with this request pre-filled — no data is sent to a server.</p>
-        <div class="field-row">
-          <label for="f-name">Company name</label>
-          <input type="text" id="f-name" name="company" required>
+      <form class="hire-form" id="hire-form" novalidate>
+        <p class="form-note">Opens your email app with the brief filled in. Nothing is sent to a server.</p>
+        <div class="fr">
+          <label for="f-company">Company</label>
+          <input type="text" id="f-company" name="company" autocomplete="organization" required>
         </div>
-        <div class="field-row two-col">
+        <div class="fr fr-2">
           <div>
             <label for="f-date">Event date</label>
             <input type="date" id="f-date" name="date" required>
           </div>
           <div>
-            <label for="f-headcount">Headcount</label>
-            <input type="number" id="f-headcount" name="headcount" min="1" required>
+            <label for="f-heads">Headcount</label>
+            <input type="number" id="f-heads" name="headcount" min="1" required>
           </div>
         </div>
-        <div class="field-row">
+        <div class="fr">
           <label for="f-venue">Venue</label>
-          <input type="text" id="f-venue" name="venue" placeholder="e.g. Suntec Singapore, Hall 401" required>
+          <input type="text" id="f-venue" name="venue" placeholder="e.g. Suntec, Hall 401" required>
         </div>
-        <fieldset class="field-row roles-fieldset">
-          <legend>Roles needed</legend>
-          <div class="chip-group">
-            <label class="chip"><input type="checkbox" name="roles" value="Ushers & Registration">Ushers &amp; Registration</label>
-            <label class="chip"><input type="checkbox" name="roles" value="Crowd & Traffic Marshals">Crowd Marshals</label>
-            <label class="chip"><input type="checkbox" name="roles" value="Setup & Logistics Crew">Logistics Crew</label>
-            <label class="chip"><input type="checkbox" name="roles" value="Promoters & Brand Ambassadors">Promoters</label>
-            <label class="chip"><input type="checkbox" name="roles" value="AV & Technical Support">AV &amp; Technical</label>
-            <label class="chip"><input type="checkbox" name="roles" value="F&B Crew">F&amp;B Crew</label>
+        <fieldset class="fr">
+          <legend>Roles</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="roles" value="Event crew">Event crew</label>
+            <label class="chip"><input type="checkbox" name="roles" value="Brand ambassadors">Brand ambassadors</label>
+            <label class="chip"><input type="checkbox" name="roles" value="Promoters">Promoters</label>
+            <label class="chip"><input type="checkbox" name="roles" value="Registration">Registration</label>
+            <label class="chip"><input type="checkbox" name="roles" value="Exhibition crew">Exhibition</label>
+            <label class="chip"><input type="checkbox" name="roles" value="Roadshow">Roadshow</label>
           </div>
         </fieldset>
-        <div class="field-row">
+        <div class="fr">
           <label for="f-email">Your email</label>
-          <input type="email" id="f-email" name="email" required>
+          <input type="email" id="f-email" name="email" autocomplete="email" required>
         </div>
-        <div class="field-row">
-          <label for="f-message">Anything else we should know</label>
-          <textarea id="f-message" name="message" rows="3"></textarea>
+        <div class="fr">
+          <label for="f-notes">Anything else</label>
+          <textarea id="f-notes" name="notes" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Email this request</button>
+        <button type="submit" class="btn btn-flare btn-full">Send the brief →</button>
+        <p id="form-status" role="status"></p>
       </form>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-row">
-    <div>
-      <img src="assets/logo-crop.png" alt="SelutionSG — Staffing Excellence" class="brand-logo footer-logo">
-      <p>Singapore event manpower agency. UEN 202556146G. Registered address and EA licence number to be inserted before launch.</p>
-      <div class="social-links footer-social">
-        <a href="https://www.instagram.com/selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--ig" aria-label="SelutionSG on Instagram">
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo-crop.png" alt="Selution" class="foot-logo">
+        <p class="foot-line">Where work meets play.</p>
+        <p class="foot-fine">Singapore event manpower and crew community. UEN 202556146G. Registered address and EA licence number to be added before launch.</p>
+      </div>
+
+      <nav class="foot-nav" aria-label="Footer">
+        <div>
+          <p class="foot-h">Work</p>
+          <a href="#services">What we do</a>
+          <a href="#proof">Why clients stay</a>
+          <a href="#hire">Hire crew</a>
+        </div>
+        <div>
+          <p class="foot-h">Play</p>
+          <a href="#life">Life at Selution</a>
+          <a href="#crew">The crew</a>
+          <a href="#join">Join us</a>
+        </div>
+        <div>
+          <p class="foot-h">Crew tools</p>
+          <a href="checkin.html">Check in</a>
+          <a href="checkout.html">Check out</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="foot-bottom">
+      <p>&copy; 2026 Selution. All rights reserved.</p>
+      <div class="foot-social">
+        <a href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer" aria-label="Selution on YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#E62117" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5z"/><path fill="#F7F6F3" d="M9.6 15.6 15.9 12 9.6 8.4z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@selutionsg" target="_blank" rel="noopener noreferrer" aria-label="Selution on TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/selutionsg" target="_blank" rel="noopener noreferrer" aria-label="Selution on Instagram">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <defs><linearGradient id="ig-grad-b" x1="3" y1="21" x2="21" y2="3">
+            <defs><linearGradient id="ig-foot" x1="3" y1="21" x2="21" y2="3">
               <stop offset="0" stop-color="#FFDC80"/><stop offset=".28" stop-color="#F77737"/>
               <stop offset=".55" stop-color="#E1306C"/><stop offset=".78" stop-color="#C13584"/>
               <stop offset="1" stop-color="#833AB4"/>
             </linearGradient></defs>
-            <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="url(#ig-grad-b)" stroke-width="1.9"/>
-            <circle cx="12" cy="12" r="4.2" stroke="url(#ig-grad-b)" stroke-width="1.9"/>
-            <circle cx="17.3" cy="6.7" r="1.35" fill="url(#ig-grad-b)"/>
-          </svg>
-        </a>
-        <a href="https://www.tiktok.com/@selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--tt" aria-label="SelutionSG on TikTok">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#25F4EE" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-          </svg>
-        </a>
-        <a href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer" class="social-link social-link--yt" aria-label="SelutionSG on YouTube">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="#E62117" d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.5z"/>
-            <path fill="#F2EEE3" d="M9.6 15.6 15.9 12 9.6 8.4z"/>
+            <rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="url(#ig-foot)" stroke-width="1.9"/>
+            <circle cx="12" cy="12" r="4.2" stroke="url(#ig-foot)" stroke-width="1.9"/>
+            <circle cx="17.3" cy="6.7" r="1.35" fill="url(#ig-foot)"/>
           </svg>
         </a>
       </div>
     </div>
-    <nav aria-label="Footer">
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#coverage">Coverage</a>
-      <a href="#wrap-reports">Clients</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-  <div class="wrap footer-bottom">
-    <p>&copy; 2026 SelutionSG. All rights reserved.</p>
   </div>
 </footer>
 
-<div class="wa-widget">
-  <div class="wa-popover" id="wa-popover" hidden>
-    <button class="wa-popover-close" id="wa-popover-close" aria-label="Close">&times;</button>
-    <p class="wa-popover-title">SelutionSG</p>
-    <p class="wa-popover-text">Questions about crew or a booking? Message us directly on WhatsApp.</p>
-    <a class="wa-popover-cta" href="https://wa.me/6589782806?text=Hi%20SelutionSG%2C%20I%27d%20like%20to%20enquire%20about%20event%20crew." target="_blank" rel="noopener noreferrer">
-      Start chat <span aria-hidden="true">&rarr;</span>
-    </a>
-  </div>
-  <button type="button" class="wa-button" id="wa-button" aria-expanded="false" aria-controls="wa-popover" aria-label="Chat with us on WhatsApp">
-    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <path d="M23.6 8.4A10.9 10.9 0 0 0 16 5.2c-6 0-10.9 4.9-10.9 10.9 0 1.9.5 3.8 1.5 5.4L5 27l5.7-1.5c1.5.8 3.3 1.3 5.2 1.3 6 0 10.9-4.9 10.9-10.9 0-2.9-1.1-5.7-3.2-7.5z" fill="#25D366"/>
-      <path d="M22 19.4c-.3.9-1.7 1.7-2.4 1.8-.6.1-1.4.1-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.4 1.1 2.6.1.2.2.4 0 .7-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1 1-.2 1.9z" fill="#fff"/>
-    </svg>
-  </button>
-</div>
+<a class="wa-fab" href="https://wa.me/6589782806?text=Hi%20Selution%2C%20I%27d%20like%20to%20enquire%20about%20event%20crew." target="_blank" rel="noopener noreferrer" aria-label="Chat with Selution on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M23.6 8.4A10.9 10.9 0 0 0 16 5.2c-6 0-10.9 4.9-10.9 10.9 0 1.9.5 3.8 1.5 5.4L5 27l5.7-1.5c1.5.8 3.3 1.3 5.2 1.3 6 0 10.9-4.9 10.9-10.9 0-2.9-1.1-5.7-3.2-7.5z" fill="#25D366"/>
+    <path d="M22 19.4c-.3.9-1.7 1.7-2.4 1.8-.6.1-1.4.1-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.4 1.1 2.6.1.2.2.4 0 .7-.1.2-.2.4-.4.6-.2.2-.4.5-.6.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.3 2.6 1.7 3 1.9.4.2.6.1.8-.1.2-.3.9-1.1 1.2-1.4.3-.3.5-.3.8-.2.3.1 2 .9 2.3 1.1.3.2.5.3.6.4.1.2.1 1-.2 1.9z" fill="#fff"/>
+  </svg>
+</a>
 
-<script src="script.js"></script>
 <script src="checkin-config.js"></script>
 <script src="manifest.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,204 +1,145 @@
 (function () {
   "use strict";
 
-  /* Mobile nav toggle */
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── Mobile nav ───────────────────────────────────────────────────────── */
   var toggle = document.getElementById("nav-toggle");
-  var nav = document.getElementById("main-nav");
-  if (toggle && nav) {
+  var links = document.getElementById("nav-links");
+  if (toggle && links) {
     toggle.addEventListener("click", function () {
       var open = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!open));
-      nav.classList.toggle("is-open", !open);
+      links.classList.toggle("is-open", !open);
     });
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
+    links.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
         toggle.setAttribute("aria-expanded", "false");
-        nav.classList.remove("is-open");
+        links.classList.remove("is-open");
       });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && links.classList.contains("is-open")) {
+        toggle.setAttribute("aria-expanded", "false");
+        links.classList.remove("is-open");
+        toggle.focus();
+      }
     });
   }
 
-  /* Manifest date + mobile row labels */
+  /* ── Hero: use assets/hero.mp4 when present, else cycle the photos ────── */
+  var video = document.getElementById("hero-video");
+  var montage = document.getElementById("hero-montage");
+
+  if (video) {
+    var source = video.querySelector("source");
+    // Only commit to the video once the browser confirms it can actually play.
+    video.addEventListener("canplay", function () {
+      video.classList.add("is-playing");
+      video.play().catch(function () {
+        video.classList.remove("is-playing");
+      });
+    });
+    video.addEventListener("error", function () { video.classList.remove("is-playing"); });
+    if (source && source.getAttribute("src")) {
+      video.load();
+    }
+  }
+
+  if (montage && !reduced) {
+    var shots = montage.querySelectorAll("img");
+    if (shots.length > 1) {
+      var i = 0;
+      setInterval(function () {
+        if (video && video.classList.contains("is-playing")) return;
+        shots[i].classList.remove("is-on");
+        i = (i + 1) % shots.length;
+        // restart the ken-burns drift on the incoming frame
+        shots[i].style.animation = "none";
+        void shots[i].offsetWidth;
+        shots[i].style.animation = "";
+        shots[i].classList.add("is-on");
+      }, 5200);
+    }
+  }
+
+  /* ── Manifest: date + mobile row labels ───────────────────────────────── */
   var dateEl = document.getElementById("manifest-date");
   if (dateEl) {
     dateEl.textContent = new Date().toLocaleDateString("en-SG", {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-      year: "numeric"
+      weekday: "short", day: "2-digit", month: "short"
     });
   }
 
-  var colLabels = ["Call time", "Venue", "Role", "Crew", "Status"];
+  var COLS = ["Call", "Venue", "Role", "Crew", "Status"];
   document.querySelectorAll(".manifest-row").forEach(function (row) {
-    Array.prototype.forEach.call(row.children, function (cell, i) {
-      if (colLabels[i]) cell.setAttribute("data-label", colLabels[i]);
+    Array.prototype.forEach.call(row.children, function (cell, n) {
+      if (COLS[n]) cell.setAttribute("data-label", COLS[n]);
     });
   });
 
-  /* Scroll reveals */
-  var revealTargets = document.querySelectorAll(
-    ".badge-card, .tl-item, .portfolio-item, .report-card, .faq-item, .services .section-title, .timeline .section-title, .coverage .section-title, .wrap-reports .section-title, .faq .section-title"
+  /* ── Scroll reveals ───────────────────────────────────────────────────── */
+  var targets = document.querySelectorAll(
+    ".band-head, .week-card, .channel, .svc, .person, .manifest, .quote, .logos, .perk, .join-cta, .hire-form, .contact-list"
   );
-  revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
-  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if ("IntersectionObserver" in window && !reduced) {
+    targets.forEach(function (el) { el.classList.add("reveal"); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
 
-  if ("IntersectionObserver" in window && !prefersReduced) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealTargets.forEach(function (el) {
-      var group = el.closest(".badge-grid, .tl-list, .portfolio-grid, .report-grid");
+    targets.forEach(function (el) {
+      var group = el.closest(".week-grid, .channels, .svc-grid, .crew-grid, .quotes, .perks");
       if (group) {
-        var siblings = Array.prototype.indexOf.call(group.children, el.closest("li") || el);
-        el.style.transitionDelay = Math.min(siblings * 60, 360) + "ms";
+        var n = Array.prototype.indexOf.call(group.children, el);
+        if (n > 0) el.style.transitionDelay = Math.min(n * 70, 350) + "ms";
       }
       io.observe(el);
     });
-  } else {
-    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* Portfolio: flag empty slots, wire up lightbox */
-  var portfolioItems = document.querySelectorAll(".portfolio-item");
-  var lightbox = document.getElementById("lightbox");
-  var lightboxImg = document.getElementById("lightbox-img");
-  var lightboxCaption = document.getElementById("lightbox-caption");
-  var lightboxClose = document.getElementById("lightbox-close");
-  var lastFocused = null;
+  /* ── Hire form → mailto ───────────────────────────────────────────────── */
+  var form = document.getElementById("hire-form");
+  var status = document.getElementById("form-status");
 
-  function openLightbox(item) {
-    var img = item.querySelector("img");
-    var caption = item.querySelector("figcaption");
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightboxCaption.textContent = caption ? caption.textContent : "";
-    lastFocused = document.activeElement;
-    lightbox.hidden = false;
-    lightboxClose.focus();
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeLightbox() {
-    lightbox.hidden = true;
-    lightboxImg.src = "";
-    document.body.style.overflow = "";
-    if (lastFocused) lastFocused.focus();
-  }
-
-  portfolioItems.forEach(function (item) {
-    var img = item.querySelector("img");
-    var filename = img.getAttribute("src").split("/").pop();
-    item.setAttribute("data-filename", "Add " + filename);
-
-    img.addEventListener("error", function () {
-      // Dashed "add photo" placeholders are an authoring aid — local only.
-      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
-        item.classList.add("is-empty");
-      } else {
-        item.style.display = "none";
-      }
-    });
-
-    item.addEventListener("click", function () {
-      if (!item.classList.contains("is-empty")) openLightbox(item);
-    });
-  });
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", closeLightbox);
-  }
-  if (lightbox) {
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) closeLightbox();
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
-    });
-  }
-
-  /* WhatsApp widget */
-  var waButton = document.getElementById("wa-button");
-  var waPopover = document.getElementById("wa-popover");
-  var waClose = document.getElementById("wa-popover-close");
-
-  function openWaPopover() {
-    waPopover.hidden = false;
-    requestAnimationFrame(function () { waPopover.classList.add("is-open"); });
-    waButton.setAttribute("aria-expanded", "true");
-  }
-  function closeWaPopover() {
-    waPopover.classList.remove("is-open");
-    waButton.setAttribute("aria-expanded", "false");
-    window.setTimeout(function () { waPopover.hidden = true; }, prefersReduced ? 0 : 180);
-  }
-
-  if (waButton && waPopover) {
-    waButton.addEventListener("click", function () {
-      if (waPopover.classList.contains("is-open")) {
-        closeWaPopover();
-      } else {
-        openWaPopover();
-      }
-    });
-    if (waClose) waClose.addEventListener("click", closeWaPopover);
-
-    document.addEventListener("click", function (e) {
-      if (
-        waPopover.classList.contains("is-open") &&
-        !waPopover.contains(e.target) &&
-        !waButton.contains(e.target)
-      ) {
-        closeWaPopover();
-      }
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && waPopover.classList.contains("is-open")) closeWaPopover();
-    });
-  }
-
-  /* Request form -> mailto */
-  var form = document.getElementById("request-form");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
       if (!form.checkValidity()) {
         form.reportValidity();
+        if (status) status.textContent = "Fill in the required fields and try again.";
         return;
       }
 
       var data = new FormData(form);
       var roles = data.getAll("roles").join(", ") || "Not specified";
-      var lines = [
+      var body = [
         "Company: " + data.get("company"),
         "Event date: " + data.get("date"),
         "Venue: " + data.get("venue"),
         "Headcount: " + data.get("headcount"),
-        "Roles needed: " + roles,
+        "Roles: " + roles,
         "Contact email: " + data.get("email"),
         "",
         "Notes:",
-        data.get("message") || "(none)"
-      ];
+        data.get("notes") || "(none)"
+      ].join("\n");
 
-      var subject = "Crew request — " + (data.get("company") || "New enquiry");
-      var body = lines.join("\n");
-      var mailto =
-        "mailto:sales@selutionsg.com?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+      window.location.href =
+        "mailto:sales@selutionsg.com" +
+        "?subject=" + encodeURIComponent("Crew brief — " + (data.get("company") || "New enquiry")) +
+        "&body=" + encodeURIComponent(body);
 
-      window.location.href = mailto;
+      if (status) {
+        status.className = "ok";
+        status.textContent = "Opening your email app with the brief filled in.";
+      }
     });
   }
 })();
