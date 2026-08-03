@@ -711,18 +711,28 @@ textarea{ resize: vertical; }
 .social-link{
   display:inline-flex; align-items:center; gap:9px;
   color: var(--paper); text-decoration:none;
-  border: 1.5px solid var(--amber);
+  border: 1.5px solid rgba(242,238,227,.3);
   border-radius: 999px;
   padding: 10px 18px;
   font-weight: 600;
-  transition: background-color .15s ease, color .15s ease, transform .15s ease;
+  transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
 }
-.social-link:hover{
-  background: var(--amber);
-  color: var(--ink);
-  transform: translateY(-2px);
-}
+.social-link:hover{ transform: translateY(-2px); }
 .social-link svg{ width:22px; height:22px; flex:0 0 auto; }
+
+/* Platform brand colours. The icon carries the identity; the border only
+   echoes it, so the pills stay quiet against the site's amber accent. */
+.social-link--ig{ border-color: rgba(225,48,108,.55); }
+.social-link--ig:hover{
+  border-color: #E1306C;
+  background: rgba(225,48,108,.14);
+}
+.social-link--tt{ border-color: rgba(37,244,238,.5); }
+.social-link--tt:hover{
+  border-color: #25F4EE;
+  background: rgba(37,244,238,.13);
+}
+
 @media (prefers-reduced-motion: reduce){
   .social-link{ transition:none; }
   .social-link:hover{ transform:none; }
@@ -732,13 +742,6 @@ textarea{ resize: vertical; }
   width: 46px; height: 46px;
   padding: 0;
   justify-content: center;
-  color: var(--paper);
-  border-color: rgba(242,238,227,.4);
-}
-.footer-social .social-link:hover{
-  border-color: var(--amber);
-  background: var(--amber);
-  color: var(--ink);
 }
 
 /* ==========================================================================
