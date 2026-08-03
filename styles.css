@@ -732,10 +732,10 @@ textarea{ resize: vertical; }
   border-color: #25F4EE;
   background: rgba(37,244,238,.13);
 }
-.social-link--yt{ border-color: rgba(255,0,0,.5); }
+.social-link--yt{ border-color: rgba(230,33,23,.55); }
 .social-link--yt:hover{
-  border-color: #FF0000;
-  background: rgba(255,0,0,.14);
+  border-color: #E62117;
+  background: rgba(230,33,23,.14);
 }
 
 @media (prefers-reduced-motion: reduce){
