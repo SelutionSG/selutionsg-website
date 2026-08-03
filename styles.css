@@ -548,8 +548,18 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
 }
 .join-cta h3{ font-size:1.7rem; font-weight:800; margin-bottom:12px; }
 .join-cta p{ margin:0 0 20px; font-size:.96rem; line-height:1.6; color:rgba(8,19,29,.82); }
-.join-cta .btn-flare{ background:#08131D; color:var(--flare); }
-.join-cta .btn-flare:hover{ background:#000; color:var(--flare); }
+
+/* Buttons sitting on the orange card: solid dark is primary (Telegram —
+   where shifts actually get posted), outlined is the secondary route. */
+.join-actions{ display:flex; flex-direction:column; gap:10px; }
+.btn-dark{ background:#08131D; color:var(--paper); }
+.btn-dark:hover{ background:#000; color:#fff; transform:translateY(-2px); }
+.btn-ghost-dark{
+  background:transparent; color:#08131D;
+  border:1.5px solid rgba(8,19,29,.4);
+}
+.btn-ghost-dark:hover{ border-color:#08131D; background:rgba(8,19,29,.07); transform:translateY(-2px); }
+.btn-ico{ width:20px; height:20px; flex:0 0 auto; }
 .join-fine{ font-size:.8rem !important; margin:14px 0 0 !important; opacity:.7; }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -708,6 +718,8 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   .perks,
   .week-grid,
   .logos-row{ grid-template-columns:1fr; }
+  /* keep the Telegram label on one line at phone widths */
+  .join-actions .btn{ padding:15px 14px; font-size:.9rem; gap:7px; }
   .week-feature{ flex-direction:column; align-items:stretch; }
   .week-thumb{ flex:none; width:100%; }
   .foot-nav{ grid-template-columns:1fr 1fr; }
