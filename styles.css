@@ -386,14 +386,21 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   color:var(--on-paper);
 }
 .svc p{ margin:0; font-size:.92rem; color:var(--on-paper-soft); line-height:1.55; }
-.svc-cta{ background:var(--on-paper); border-color:var(--on-paper); }
-.svc-cta .svc-n{ color:var(--paper); }
-.svc-cta p{ color:rgba(247,246,243,.72); }
-.svc-cta a{
-  display:inline-block; margin-top:12px; color:var(--flare);
-  font-weight:600; font-size:.92rem; text-decoration:none;
+/* The 8 services fill two clean rows; the ask spans the full width below
+   them so it reads as a closing invitation rather than a ninth service. */
+.svc-cta{
+  grid-column:1 / -1;
+  background:var(--on-paper); border-color:var(--on-paper);
+  display:flex; align-items:center; gap:10px 26px; flex-wrap:wrap;
+  padding:24px 28px;
 }
-.svc-cta:hover{ background:var(--on-paper); border-color:var(--flare); }
+.svc-cta .svc-n{ color:var(--paper); margin-bottom:0; }
+.svc-cta p{ color:rgba(247,246,243,.72); flex:1 1 280px; }
+.svc-cta a{
+  color:var(--flare); font-weight:600; font-size:.95rem;
+  text-decoration:none; white-space:nowrap;
+}
+.svc-cta:hover{ background:var(--on-paper); border-color:var(--flare); transform:none; }
 .svc-cta a:hover{ text-decoration:underline; }
 
 /* ══════════════════════════════════════════════════════════════════════════
