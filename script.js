@@ -32,8 +32,9 @@
   var montage = document.getElementById("hero-montage");
 
   if (video) {
-    var source = video.querySelector("source");
     // Only commit to the video once the browser confirms it can actually play.
+    // No explicit load() here — preload="metadata" already fetches it, and
+    // calling load() as well made the page request the file twice.
     video.addEventListener("canplay", function () {
       video.classList.add("is-playing");
       video.play().catch(function () {
@@ -41,9 +42,6 @@
       });
     });
     video.addEventListener("error", function () { video.classList.remove("is-playing"); });
-    if (source && source.getAttribute("src")) {
-      video.load();
-    }
   }
 
   if (montage && !reduced) {
@@ -100,6 +98,25 @@
         if (n > 0) el.style.transitionDelay = Math.min(n * 70, 350) + "ms";
       }
       io.observe(el);
+    });
+  }
+
+  /* ── YouTube facade: swap in the real player only when asked ──────────── */
+  var facade = document.getElementById("yt-facade");
+  if (facade) {
+    facade.addEventListener("click", function () {
+      var id = facade.getAttribute("data-video");
+      if (!id) return;
+      var frame = document.createElement("iframe");
+      frame.className = "yt-frame";
+      // nocookie host: no tracking cookies unless the video is actually played
+      frame.src = "https://www.youtube-nocookie.com/embed/" + id +
+                  "?autoplay=1&rel=0&modestbranding=1";
+      frame.title = "EP 1: Events trivia punishment game";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
+      frame.setAttribute("allowfullscreen", "");
+      facade.replaceWith(frame);
+      frame.focus();
     });
   }
 

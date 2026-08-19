@@ -53,7 +53,7 @@
     <!-- Drop a looping cut at assets/hero.mp4 and it plays automatically.
          Until then, the real event photos below run as a slow montage. -->
     <div class="hero-media" aria-hidden="true">
-      <video id="hero-video" muted loop playsinline preload="none" poster="assets/portfolio/01.jpg">
+      <video id="hero-video" muted loop playsinline preload="metadata" poster="assets/portfolio/01.jpg">
         <source src="assets/hero.mp4" type="video/mp4">
       </video>
       <div class="hero-montage" id="hero-montage">
@@ -116,14 +116,20 @@
       <div class="week">
         <p class="week-label">This week</p>
         <div class="week-grid">
-          <article class="week-card week-feature" data-slot="latest-video">
-            <div class="week-thumb">
-              <span class="play-btn" aria-hidden="true"></span>
-            </div>
+          <article class="week-card week-feature">
+            <!-- Facade: the YouTube player only loads once you press play. -->
+            <button class="yt-facade" id="yt-facade" type="button"
+                    data-video="7n6m3aAZXLA"
+                    aria-label="Play: EP 1 — Events trivia punishment game">
+              <img src="https://i.ytimg.com/vi/7n6m3aAZXLA/maxresdefault.jpg"
+                   alt="" loading="lazy" width="1280" height="720">
+              <span class="yt-play" aria-hidden="true"></span>
+              <span class="yt-dur" aria-hidden="true">2:00</span>
+            </button>
             <div class="week-meta">
               <p class="week-kicker">Latest upload</p>
-              <h3>[Add the title of your newest YouTube video]</h3>
-              <a class="week-link" href="https://www.youtube.com/@selutionsg" target="_blank" rel="noopener noreferrer">Watch on YouTube →</a>
+              <h3>EP 1: Events trivia punishment game</h3>
+              <a class="week-link" href="https://www.youtube.com/watch?v=7n6m3aAZXLA" target="_blank" rel="noopener noreferrer">Watch on YouTube →</a>
             </div>
           </article>
 
