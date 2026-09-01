@@ -126,9 +126,8 @@
     }, 600);
   }
 
-  /* ── YouTube facade: swap in the real player only when asked ──────────── */
-  var facade = document.getElementById("yt-facade");
-  if (facade) {
+  /* ── YouTube facades: swap in the real player only when asked ─────────── */
+  document.querySelectorAll(".yt-facade").forEach(function (facade) {
     facade.addEventListener("click", function () {
       var id = facade.getAttribute("data-video");
       if (!id) return;
@@ -137,13 +136,13 @@
       // nocookie host: no tracking cookies unless the video is actually played
       frame.src = "https://www.youtube-nocookie.com/embed/" + id +
                   "?autoplay=1&rel=0&modestbranding=1";
-      frame.title = "EP 1: Events trivia punishment game";
+      frame.title = facade.getAttribute("data-title") || "Selution video";
       frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
       frame.setAttribute("allowfullscreen", "");
       facade.replaceWith(frame);
       frame.focus();
     });
-  }
+  });
 
   /* ── Hire form → mailto ───────────────────────────────────────────────── */
   var form = document.getElementById("hire-form");
