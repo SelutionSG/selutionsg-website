@@ -125,7 +125,7 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   border-bottom:1px solid rgba(243,241,236,.09);
 }
 .nav-row{ display:flex; align-items:center; justify-content:space-between; gap:20px; }
-.nav-brand img{ height:26px; width:auto; border-radius:3px; }
+.nav-brand img{ height:26px; width:auto; }
 
 .nav-links{ display:flex; align-items:center; gap:26px; }
 .nav-links a{
@@ -703,7 +703,7 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
    ══════════════════════════════════════════════════════════════════════════ */
 .foot{ background:var(--ink); padding:70px 0 34px; border-top:1px solid var(--ink-3); }
 .foot-top{ display:grid; grid-template-columns:1.2fr 1.4fr; gap:44px; padding-bottom:38px; }
-.foot-logo{ height:38px; width:auto; border-radius:3px; margin-bottom:16px; }
+.foot-logo{ height:38px; width:auto; margin-bottom:16px; }
 .foot-line{
   font-family:var(--display); font-weight:700; font-size:1.24rem;
   letter-spacing:-.02em; margin:0 0 12px; color:var(--flare);
