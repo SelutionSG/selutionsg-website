@@ -549,18 +549,20 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   display:grid; gap:10px;
   grid-template-columns:repeat(auto-fill, minmax(108px, 1fr));
 }
+/* White tile + multiply blend so logos supplied on a white background sit
+   flush instead of showing a pale rectangle against the section. */
 .logo-slot{
   display:flex; align-items:center; justify-content:center;
   aspect-ratio:16/9; border-radius:var(--r-s);
-  background:var(--paper-2); border:1px solid var(--paper-3);
+  background:#fff; border:1px solid var(--paper-3);
   padding:14px;
 }
 /* Client marks arrive in clashing colours; muting them to one tone keeps
    the row calm, and full colour on hover rewards a closer look. */
 .logo-slot img{
   max-width:100%; max-height:100%; width:auto; height:auto;
-  object-fit:contain;
-  filter:grayscale(1); opacity:.6;
+  object-fit:contain; mix-blend-mode:multiply;
+  filter:grayscale(1); opacity:.62;
   transition:filter .2s var(--ease), opacity .2s var(--ease);
 }
 .logo-slot:hover img{ filter:none; opacity:1; }
