@@ -562,16 +562,19 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
 .logo-slot img{
   max-width:100%; max-height:100%; width:auto; height:auto;
   object-fit:contain; mix-blend-mode:multiply;
-  filter:grayscale(1); opacity:.62;
+  filter:grayscale(1); opacity:.85;
   transition:filter .2s var(--ease), opacity .2s var(--ease);
 }
 .logo-slot:hover img{ filter:none; opacity:1; }
 /* Some brands only supply a mark on their own coloured ground. Those fill
    the tile edge to edge so they read as intentional, not as a stray block. */
 .logo-slot--bleed{ padding:0; background:transparent; overflow:hidden; }
+/* Illustrated marks lose too much in full greyscale, so these only get
+   damped enough to sit with the flat wordmarks beside them. */
 .logo-slot--bleed img{
   width:100%; height:100%; max-width:none; max-height:none;
   object-fit:cover; mix-blend-mode:normal;
+  filter:saturate(.5); opacity:.9;
 }
 .logo-slot.is-empty{ display:none; }
 /* Authoring aid: unfilled slots are only visible when working locally. */
