@@ -566,6 +566,13 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   transition:filter .2s var(--ease), opacity .2s var(--ease);
 }
 .logo-slot:hover img{ filter:none; opacity:1; }
+/* Some brands only supply a mark on their own coloured ground. Those fill
+   the tile edge to edge so they read as intentional, not as a stray block. */
+.logo-slot--bleed{ padding:0; background:transparent; overflow:hidden; }
+.logo-slot--bleed img{
+  width:100%; height:100%; max-width:none; max-height:none;
+  object-fit:cover; mix-blend-mode:normal;
+}
 .logo-slot.is-empty{ display:none; }
 /* Authoring aid: unfilled slots are only visible when working locally. */
 .logo-slot.is-empty.show-slot{
