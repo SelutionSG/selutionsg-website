@@ -544,14 +544,36 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   letter-spacing:.2em; text-transform:uppercase;
   color:var(--on-paper-soft); margin:0 0 12px;
 }
-.logos-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+/* auto-fill so the row stays balanced whatever number of logos exist */
+.logos-row{
+  display:grid; gap:10px;
+  grid-template-columns:repeat(auto-fill, minmax(108px, 1fr));
+}
 .logo-slot{
   display:flex; align-items:center; justify-content:center;
   aspect-ratio:16/9; border-radius:var(--r-s);
-  border:1.5px dashed var(--paper-3);
-  font-family:var(--mono); font-size:.62rem; text-align:center;
-  color:var(--on-paper-soft); padding:6px;
+  background:var(--paper-2); border:1px solid var(--paper-3);
+  padding:14px;
 }
+/* Client marks arrive in clashing colours; muting them to one tone keeps
+   the row calm, and full colour on hover rewards a closer look. */
+.logo-slot img{
+  max-width:100%; max-height:100%; width:auto; height:auto;
+  object-fit:contain;
+  filter:grayscale(1); opacity:.6;
+  transition:filter .2s var(--ease), opacity .2s var(--ease);
+}
+.logo-slot:hover img{ filter:none; opacity:1; }
+.logo-slot.is-empty{ display:none; }
+/* Authoring aid: unfilled slots are only visible when working locally. */
+.logo-slot.is-empty.show-slot{
+  display:flex; background:transparent;
+  border:1.5px dashed var(--paper-3);
+  font-family:var(--mono); font-size:.6rem; text-align:center;
+  color:var(--on-paper-soft);
+}
+.logo-slot.is-empty.show-slot::before{ content:attr(data-file); }
+.logo-slot.is-empty img{ display:none; }
 
 /* ══════════════════════════════════════════════════════════════════════════
    JOIN

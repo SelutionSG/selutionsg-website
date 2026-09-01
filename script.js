@@ -101,6 +101,31 @@
     });
   }
 
+  /* ── Client logos: hide slots with no file yet ────────────────────────── */
+  var local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  document.querySelectorAll(".logo-slot").forEach(function (slot) {
+    var img = slot.querySelector("img");
+    if (!img) return;
+    slot.setAttribute("data-file", img.getAttribute("src").split("/").pop());
+
+    function markEmpty() {
+      slot.classList.add("is-empty");
+      if (local) slot.classList.add("show-slot");
+    }
+    img.addEventListener("error", markEmpty);
+    // catch files that already failed before this script ran
+    if (img.complete && img.naturalWidth === 0) markEmpty();
+  });
+
+  // Hide the whole block if no logos have been added yet.
+  var logos = document.getElementById("logos");
+  if (logos) {
+    window.setTimeout(function () {
+      var filled = logos.querySelectorAll(".logo-slot:not(.is-empty)").length;
+      if (!filled && !local) logos.style.display = "none";
+    }, 600);
+  }
+
   /* ── YouTube facade: swap in the real player only when asked ──────────── */
   var facade = document.getElementById("yt-facade");
   if (facade) {

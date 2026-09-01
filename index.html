@@ -344,13 +344,18 @@
             </blockquote>
           </div>
 
-          <div class="logos" data-slot="client-logos">
+          <!-- Drop logo files into assets/logos/ as 01.png … 06.png.
+               Any slot without a file hides itself, so nothing broken ever
+               shows publicly. Update each alt to the client's name. -->
+          <div class="logos" id="logos">
             <p class="logos-label">Worked with</p>
             <div class="logos-row">
-              <span class="logo-slot">[Client logo]</span>
-              <span class="logo-slot">[Client logo]</span>
-              <span class="logo-slot">[Client logo]</span>
-              <span class="logo-slot">[Client logo]</span>
+              <span class="logo-slot"><img src="assets/logos/01.png" alt="" loading="lazy"></span>
+              <span class="logo-slot"><img src="assets/logos/02.png" alt="" loading="lazy"></span>
+              <span class="logo-slot"><img src="assets/logos/03.png" alt="" loading="lazy"></span>
+              <span class="logo-slot"><img src="assets/logos/04.png" alt="" loading="lazy"></span>
+              <span class="logo-slot"><img src="assets/logos/05.png" alt="" loading="lazy"></span>
+              <span class="logo-slot"><img src="assets/logos/06.png" alt="" loading="lazy"></span>
             </div>
           </div>
         </div>
