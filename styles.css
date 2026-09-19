@@ -101,6 +101,10 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
 .band-dark{ background:var(--ink); color:var(--on-ink); }
 .band-light{ background:var(--paper); color:var(--on-paper); }
 .band-light .band-title{ color:var(--on-paper); }
+/* Two bands on the same ground would otherwise merge into one slab, so
+   give consecutive matches a hairline to keep the sections distinct. */
+.band-light + .band-light{ border-top:1px solid var(--paper-3); }
+.band-dark + .band-dark{ border-top:1px solid var(--ink-3); }
 
 /* ── Buttons ────────────────────────────────────────────────────────────── */
 .btn{
@@ -294,7 +298,11 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   letter-spacing:.2em; text-transform:uppercase; color:var(--on-ink-soft);
   margin:0 0 16px;
 }
-.week-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:16px; }
+/* Adapts to however many cards are present. When the video feature card is
+   in the grid it reclaims the wider first column automatically, so hiding
+   or restoring it needs no CSS change. */
+.week-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px; }
+.week-grid:has(.week-feature){ grid-template-columns:1.6fr 1fr 1fr; }
 .week-card{
   background:var(--ink-2); border:1px solid var(--ink-3);
   border-radius:var(--r); padding:22px; margin:0;

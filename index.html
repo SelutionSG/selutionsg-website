@@ -34,7 +34,8 @@
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="#life"><span class="tag-play">Play</span> Life at Selution</a>
       <a href="#services"><span class="tag-work">Work</span> What we do</a>
-      <a href="#crew"><span class="tag-play">Play</span> The crew</a>
+      <!-- HIDDEN NAV LINK — restore with the crew section:
+      <a href="#crew"><span class="tag-play">Play</span> The crew</a> -->
       <a href="#proof"><span class="tag-work">Work</span> Why clients stay</a>
       <a href="#join" class="nav-join">Join us</a>
       <a href="#hire" class="nav-cta">Hire crew</a>
@@ -117,8 +118,14 @@
       <div class="week">
         <p class="week-label">This week</p>
         <div class="week-grid">
+          <!-- ░░ HIDDEN: LATEST UPLOAD ░░ ────────────────────────────────
+               Temporarily removed. To restore, delete this comment wrapper.
+               Update data-video, data-title, the thumbnail URL, the duration
+               and the watch link to whatever the newest video is.
+               The styling (.yt-facade, .yt-play, .yt-dur) is still in
+               styles.css, and script.js still wires up any .yt-facade found.
+
           <article class="week-card week-feature">
-            <!-- Facade: the YouTube player only loads once you press play. -->
             <button class="yt-facade" type="button"
                     data-video="rhLR3N8OQwM"
                     data-title="EP 2: Rubber band punishment game"
@@ -134,6 +141,8 @@
               <a class="week-link" href="https://www.youtube.com/watch?v=rhLR3N8OQwM" target="_blank" rel="noopener noreferrer">Watch on YouTube →</a>
             </div>
           </article>
+
+               ░░ END HIDDEN ░░ ──────────────────────────────────────────── -->
 
           <article class="week-card">
             <p class="week-kicker">Crew spotlight</p>
@@ -182,8 +191,12 @@
         </a>
       </div>
 
-      <!-- Earlier episodes. When a new one lands, the current feature above
-           moves down here and the newest takes its place. -->
+      <!-- ░░ HIDDEN: EARLIER EPISODES ░░ ─────────────────────────────────
+           Temporarily removed. To restore, delete this comment wrapper.
+           The row auto-fills, so add one <article class="ep"> per video —
+           it absorbs new entries without any layout change.
+           Styling (.eps, .eps-row, .ep, .ep-title) remains in styles.css.
+
       <div class="eps">
         <p class="eps-label">Earlier episodes</p>
         <div class="eps-row">
@@ -201,6 +214,8 @@
           </article>
         </div>
       </div>
+
+           ░░ END HIDDEN ░░ ───────────────────────────────────────────── -->
 
       <!-- Reel: real event photography -->
       <div class="reel" id="reel">
@@ -264,7 +279,17 @@
     </div>
   </section>
 
-  <!-- ══════════ THE CREW ══════════ -->
+  <!-- ░░ HIDDEN: THE CREW ░░ ══════════════════════════════════════════════
+       Temporarily removed. To restore:
+         1. Delete this comment wrapper.
+         2. Re-add the nav and footer links to #crew (both are commented
+            out in place — search for "HIDDEN NAV LINK" and "HIDDEN FOOTER
+            LINK" below).
+         3. Fill in each card. For a photo, replace the .person-photo
+            contents with <img src="assets/crew/name.jpg" alt="Name">.
+       Styling (.crew-grid, .person, .person-photo, .person-init,
+       .person-role, .person-line) remains in styles.css.
+
   <section class="band band-dark" id="crew">
     <div class="shell">
       <header class="band-head">
@@ -301,6 +326,8 @@
       </div>
     </div>
   </section>
+
+       ░░ END HIDDEN ░░ ═════════════════════════════════════════════════ -->
 
   <!-- ══════════ WHY CLIENTS STAY ══════════ -->
   <section class="band band-light" id="proof">
@@ -503,7 +530,8 @@
         <div>
           <p class="foot-h">Play</p>
           <a href="#life">Life at Selution</a>
-          <a href="#crew">The crew</a>
+          <!-- HIDDEN FOOTER LINK — restore with the crew section:
+          <a href="#crew">The crew</a> -->
           <a href="#join">Join us</a>
         </div>
         <div>
