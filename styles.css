@@ -549,6 +549,11 @@ h1,h2,h3{ font-family:var(--display); margin:0; line-height:1.02; letter-spacing
   color:rgba(247,246,243,.62);
 }
 
+/* Supporting copy in the right column, carrying the weight the quotes did */
+.proof-lead{
+  margin:0 0 26px; font-size:1.12rem; line-height:1.6;
+  color:var(--on-paper);
+}
 .quotes{ display:grid; gap:12px; }
 .quote{
   margin:0; background:var(--paper-2); border:1px solid var(--paper-3);
